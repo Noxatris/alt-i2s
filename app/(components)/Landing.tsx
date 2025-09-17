@@ -148,7 +148,7 @@ export default function Landing() {
             {/* CTA */}
             <div className="mt-16 flex flex-col items-center">
                 <p className="italic text-gray-700 mb-6">
-                    "I2S Formation" vous accompagne au quotidien dans les Caraïbes
+                    &quot;I2S Formation&quot; vous accompagne au quotidien dans les Caraïbes
                 </p>
                 <button className="button-29 text-xs w-[95%] md:text-[18px]" role="button">
                     Une demande de devis ? Contactez-nous !

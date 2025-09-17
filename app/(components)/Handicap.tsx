@@ -12,7 +12,7 @@ export default function Handicap() {
     const handicapRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             gsap.defaults({ ease: "power3.out" });
 
             const tl = gsap.timeline({
@@ -108,7 +108,7 @@ export default function Handicap() {
                     </h1>
 
                     <span className="handicap-subtext font-montserrat text-lg md:text-[2em] my-4 md:my-8">
-                        I2S Formation s'engage à vous accueillir
+                        I2S Formation s&apos;engage à vous accueillir
                     </span>
                     <span className="handicap-subtext font-montserrat text-lg md:text-[2em] my-4 md:my-8">
                         Une question ou un besoin ?

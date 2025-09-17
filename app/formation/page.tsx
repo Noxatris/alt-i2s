@@ -16,7 +16,7 @@ export default function Formation() {
     const statsRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             // Hero
             gsap.from(".hero-text", {
                 opacity: 0,
@@ -193,7 +193,7 @@ export default function Formation() {
                                 </div>
                                 <blockquote className="relative italic text-gray-700">
                                     <Quote size={28} className="quote-icon absolute -top-4 -left-4 text-gray-300 opacity-70 transform -scale-x-100" />
-                                    <p className="relative z-10">"{testimonial.avis}"</p>
+                                    <p className="relative z-10">&quot;{testimonial.avis}&quot;</p>
                                 </blockquote>
                             </div>
                         ))}

@@ -12,7 +12,7 @@ export default function Equipe() {
     const equipeRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             gsap.defaults({ ease: "power3.out" });
 
             const tl = gsap.timeline({
@@ -86,7 +86,7 @@ export default function Equipe() {
                 </span>
 
                 <p className="equipe-text text-base md:text-[1.7em] mb-4 md:mb-2 font-montserrat">
-                    Implantés en Guadeloupe, nous assurons nos formations dans les Caraibes ainsi qu'en métropole.
+                    Implantés en Guadeloupe, nous assurons nos formations dans les Caraibes ainsi qu&apos;en métropole.
                 </p>
                 <p className="equipe-text text-base md:text-[1.7em] font-montserrat">
                     Dirigé par des membres fondateurs experts, I2S est spécialisé dans le secteur médico-social et sanitaire.

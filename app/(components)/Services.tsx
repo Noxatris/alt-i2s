@@ -12,7 +12,7 @@ export default function Services() {
     const servicesRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             gsap.defaults({ ease: "power3.out" });
 
             const tl = gsap.timeline({
@@ -98,7 +98,7 @@ export default function Services() {
                                 <ul className="mt-4 space-y-2 text-gray-300">
                                     <li className="flex items-start">
                                         <CircleChevronRight className="h-5 w-5 mr-2 mt-1 text-cyan-400 shrink-0" />
-                                        <span>Secteurs d'intervention : sanitaire, médico-social, entreprises, etc.</span>
+                                        <span>Secteurs d&apos;intervention : sanitaire, médico-social, entreprises, etc.</span>
                                     </li>
                                     <li className="flex items-start">
                                         <CircleChevronRight className="h-5 w-5 mr-2 mt-1 text-cyan-400 shrink-0" />
@@ -150,7 +150,7 @@ export default function Services() {
                                     </li>
                                     <li className="flex items-start">
                                         <CircleChevronRight className="h-5 w-5 mr-2 mt-1 text-cyan-400 shrink-0" />
-                                        <span>Conseils pour l'optimisation des processus.</span>
+                                        <span>Conseils pour l&apos;optimisation des processus.</span>
                                     </li>
                                 </ul>
                             </div>
