@@ -17,26 +17,27 @@ export default function Formation() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Hero Section: Animation plus percutante
+
+            // Les animations du "Hero" se lancent dès le chargement de la page
             gsap.from(".hero-text", {
                 opacity: 0,
-                y: 50, // Moins de déplacement pour un effet plus subtil
+                y: 50,
                 duration: 0.8,
-                ease: "power2.out", // Utilisation d'un easing pour un mouvement plus fluide
+                ease: "power2.out",
                 stagger: 0.2,
                 scrollTrigger: {
                     trigger: heroRef.current,
-                    start: "top 80%", // Commence l'animation plus tôt dans le viewport
-                    toggleActions: "play none none none", // Joue l'animation une seule fois à l'entrée
+                    start: "top 80%",
+                    toggleActions: "play none none none",
                 },
             })
 
             gsap.from(".hero-img", {
                 opacity: 0,
-                scale: 0.8, // Apparaît en se "zoomant"
-                rotate: 2, // Légère rotation pour le dynamisme
+                scale: 0.8,
+                rotate: 2,
                 duration: 1,
-                delay: 0.3, // Décalage après le texte
+                delay: 0.3,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: heroRef.current,
@@ -45,90 +46,98 @@ export default function Formation() {
                 },
             })
 
-            // Formations Section: Révélation des cartes
-            gsap.from(".formation-card", {
-                opacity: 0,
-                y: 100,
-                duration: 0.6,
-                ease: "back.out(1.2)", // Effet de rebond pour plus de vivacité
-                stagger: 0.15, // Écart plus serré
-                scrollTrigger: {
-                    trigger: formationsRef.current,
-                    start: "top 70%",
-                    toggleActions: "play none none none",
-                },
-            })
+            // On s'assure que la référence de la section formations est bien là
+            if (formationsRef.current) {
+                gsap.from(formationsRef.current.querySelectorAll(".formation-card"), {
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.6,
+                    ease: "power3.out",
+                    stagger: 0.15,
+                    scrollTrigger: {
+                        trigger: formationsRef.current,
+                        start: "top 90%",
+                        end: "+=200",
+                        scrub: 1.5,
+                    },
+                })
+            }
 
-            // Témoignages Section: Animation des cartes et des icônes de citation
-            gsap.from(".testimonial-card", {
-                opacity: 0,
-                y: 80,
-                duration: 0.6,
-                ease: "power3.out",
-                stagger: 0.2,
-                scrollTrigger: {
-                    trigger: temoignagesRef.current,
-                    start: "top 70%",
-                    toggleActions: "play none none none",
-                },
-            })
+            if (temoignagesRef.current) {
+                // Témoignages Section
+                gsap.from(temoignagesRef.current.querySelectorAll(".testimonial-card"), {
+                    opacity: 0,
+                    y: 80,
+                    duration: 0.6,
+                    ease: "power3.out",
+                    stagger: 0.2,
+                    scrollTrigger: {
+                        trigger: temoignagesRef.current,
+                        start: "top 70%",
+                        toggleActions: "play none none none",
+                    },
+                })
 
-            gsap.from(".quote-icon", {
-                opacity: 0,
-                scale: 0.5,
-                rotate: -45,
-                duration: 0.8,
-                ease: "elastic.out(1, 0.5)", // Effet élastique sur les icônes
-                stagger: 0.3,
-                scrollTrigger: {
-                    trigger: temoignagesRef.current,
-                    start: "top 70%",
-                    toggleActions: "play none none none",
-                },
-            })
+                gsap.from(temoignagesRef.current.querySelectorAll(".quote-icon"), {
+                    opacity: 0,
+                    scale: 0.5,
+                    rotate: -45,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.5)",
+                    stagger: 0.3,
+                    scrollTrigger: {
+                        trigger: temoignagesRef.current,
+                        start: "top 70%",
+                        toggleActions: "play none none none",
+                    },
+                })
+            }
 
-            // Stats Section: Animations des éléments
-            gsap.from(".circle", {
-                opacity: 0,
-                scale: 0.5,
-                duration: 1,
-                ease: "elastic.out(1, 0.3)",
-                scrollTrigger: {
-                    trigger: statsRef.current,
-                    start: "top 75%",
-                    toggleActions: "play none none none",
-                },
-            })
+            if (statsRef.current) {
+                // Stats Section
+                gsap.from(statsRef.current.querySelector(".circle"), {
+                    opacity: 0,
+                    scale: 0.5,
+                    duration: 1,
+                    ease: "elastic.out(1, 0.3)",
+                    scrollTrigger: {
+                        trigger: statsRef.current,
+                        start: "top 75%",
+                        toggleActions: "play none none none",
+                    },
+                })
 
-            gsap.from(".keyword", {
-                opacity: 0,
-                y: 30,
-                duration: 0.5,
-                stagger: 0.15,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: statsRef.current,
-                    start: "top 75%",
-                    toggleActions: "play none none none",
-                },
-            })
+                gsap.from(statsRef.current.querySelectorAll(".keyword"), {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.5,
+                    stagger: 0.15,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: statsRef.current,
+                        start: "top 75%",
+                        toggleActions: "play none none none",
+                    },
+                })
 
-            gsap.from(".stat-card", {
-                opacity: 0,
-                x: -100, // Déplace de la gauche
-                duration: 0.7,
-                stagger: 0.2,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: statsRef.current,
-                    start: "top 75%",
-                    toggleActions: "play none none none",
-                },
-            })
+                gsap.from(statsRef.current.querySelectorAll(".stat-card"), {
+                    opacity: 0,
+                    x: -100,
+                    duration: 0.7,
+                    stagger: 0.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: statsRef.current,
+                        start: "top 75%",
+                        toggleActions: "play none none none",
+                    },
+                })
+            }
         })
 
         return () => ctx.revert()
     }, [])
+
     // ----- DATA -----
     const formationsData = [
         { nom: "Utilisation du défibrillateur semi-automatique", description: "Animée par des formateurs expérimentés, infirmiers anesthésistes.", ficheTechnique: "/", dossierPresentation: "/", icon: "⚡" },
@@ -165,7 +174,7 @@ export default function Formation() {
             </section>
 
             {/* Formations */}
-            <section ref={formationsRef} className="max-w-7xl mx-auto px-6 py-20">
+            <section ref={formationsRef} className="max-w-7xl mx-auto px-6 py-20 min-h-[80vh]">
                 <h2 className="font-bold text-[3em] text-center mb-16 text-cyan-600">Nos formations</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {formationsData.map((data, i) => (
