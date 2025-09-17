@@ -19,7 +19,7 @@ export default function Equipe() {
                 scrollTrigger: {
                     trigger: equipeRef.current,
                     start: "top center",
-                    end: "top 20%",
+                    end: "top 15%",
                     scrub: 1.5,
                 },
             });

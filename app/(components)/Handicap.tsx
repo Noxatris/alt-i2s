@@ -96,9 +96,9 @@ export default function Handicap() {
 
             <div className="flex flex-col md:flex-row w-full justify-between items-center max-w-7xl">
                 {/* Contenu textuel */}
-                <div className="flex flex-col items-center md:items-start text-center md:text-left md:w-1/2 p-4 md:p-0 order-2 md:order-1">
+                <div className="flex flex-col items-center text-center md:text-left md:w-2/3 p-4 md:p-0 order-2 md:order-1">
                     <h1
-                        className="handicap-title relative bg-gradient-to-r from-cyan-500 to-blue-700
+                        className="handicap-title text-center relative bg-gradient-to-r from-cyan-500 to-blue-700
             bg-[length:200%_200%] bg-clip-text text-transparent 
             animate-gradient font-bold 
             text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
