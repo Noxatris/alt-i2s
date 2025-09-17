@@ -68,10 +68,16 @@ export default function Tatoueurs() {
             </section>
 
             {/* Infos pratiques Section - Refined with card design */}
-            <section className="bg-gray-50 py-20">
-                <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <section className="bg-gray-50 relative">
+                <div className="absolute h-full aspect-square top-0 left-0 rounded-br-full rounded-tr-full overflow-hidden">
+                    <div className="relative w-full h-full ">
+                        <Image src="/tatouage.avif" fill alt="Illustration tatouage" className="object-cover" />
+                    </div>
+                </div>
+                <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-20">
+
                     {/* Documents Card */}
-                    <div className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl">
+                    <div className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl z-10">
                         <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-4">
                             <BookOpen size={24} className="text-blue-600" />
                         </div>
@@ -100,17 +106,12 @@ export default function Tatoueurs() {
                             <p className="font-semibold text-gray-800">Novembre 2025</p>
                             <p className="text-gray-600">3 jours • 21h • 400 €</p>
                         </div>
-                    </div>
-
-                    {/* Illustration Card */}
-                    <div className="border border-gray-200 rounded-3xl p-8 shadow-xl bg-white flex flex-col items-center justify-center transition-shadow duration-300 hover:shadow-2xl">
-                        <div className="relative w-40 h-40">
-                            <Image src="/tatouage.avif" fill alt="Illustration tatouage" className="object-cover rounded-2xl" />
+                        <div>
+                            <h2 className="text-2xl font-bold mt-6 mb-2 text-center">Hygiène et Salubrité</h2>
+                            <p className="text-gray-600 text-center text-sm">
+                                Formation prévue à l’article R. 1311-3 du code de la santé publique.
+                            </p>
                         </div>
-                        <h2 className="text-2xl font-bold mt-6 mb-2 text-center">Hygiène et Salubrité</h2>
-                        <p className="text-gray-600 text-center text-sm">
-                            Formation prévue à l’article R. 1311-3 du code de la santé publique.
-                        </p>
                     </div>
                 </div>
             </section>
