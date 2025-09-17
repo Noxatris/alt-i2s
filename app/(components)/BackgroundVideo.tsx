@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function BackgroundVideo() {
-    const videoRef = useRef(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
     const [videoLoaded, setVideoLoaded] = useState(false);
     const [isHovered, setIsHovered] = useState(false); // Nouvel état pour le survol
 
@@ -29,16 +29,8 @@ export default function BackgroundVideo() {
 
     // Fonction pour basculer en mode plein écran
     const handleFullScreen = () => {
-        if (videoRef.current) {
-            if (videoRef.current.requestFullscreen) {
-                videoRef.current.requestFullscreen();
-            } else if (videoRef.current.mozRequestFullScreen) { /* Firefox */
-                videoRef.current.mozRequestFullScreen();
-            } else if (videoRef.current.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-                videoRef.current.webkitRequestFullscreen();
-            } else if (videoRef.current.msRequestFullscreen) { /* IE/Edge */
-                videoRef.current.msRequestFullscreen();
-            }
+        if (videoRef.current && videoRef.current.requestFullscreen) {
+            videoRef.current.requestFullscreen();
         }
     };
 
