@@ -68,7 +68,7 @@ export default function Handicap() {
         >
             {/* SVG des chevrons masqué sur les mobiles et affiché sur les résolutions moyennes et plus */}
             <svg
-                className="handicap-chevrons absolute inset-y-0 left-0 h-full w-20 md:w-32 lg:w-48 pointer-events-none opacity-50 hidden md:block"
+                className="handicap-chevrons absolute inset-y-0 left-0 h-full w-20 md:w-32 lg:w-96 pointer-events-none opacity-50 hidden md:block"
                 viewBox="0 0 50 100"
                 preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -113,30 +113,26 @@ export default function Handicap() {
                     <span className="handicap-subtext font-montserrat text-lg md:text-[2em] my-4 md:my-8">
                         Une question ou un besoin ?
                     </span>
-                    <ArrowBigDownDash
-                        className="handicap-arrow mb-2 text-cyan-400 animate-bounce-smooth"
-                        size={50}
-                    />
-
                     <button className="handicap-button button-29 w-full sm:w-2/3 md:w-1/2 mt-4 md:mt-8" role="button">
                         Contactez le référent handicap
                     </button>
                 </div>
-
                 {/* Image en arc */}
-                <div className="handicap-image-container w-full md:w-1/2 h-[40vh] md:h-full relative overflow-hidden order-1 md:order-2">
-                    <Image
-                        src="/Alt_handicap.jpg"
-                        alt="Une personne en situation de handicap dans un fauteuil roulant participe à une formation."
-                        fill
-                        style={{
-                            objectFit: "cover",
-                            clipPath: "ellipse(80% 100% at 100% 50%)",
-                        }}
-                        className="handicap-image"
-                    />
+                <div className="absolute w-full h-full top-0 left-0 flex justify-end items-end pointer-events-none">
+                    <div className="handicap-image-container w-full md:w-1/2 h-[40vh] md:h-full relative overflow-hidden order-1 md:order-2">
+                        <Image
+                            src="/Alt_handicap.jpg"
+                            alt="Une personne en situation de handicap dans un fauteuil roulant participe à une formation."
+                            fill
+                            style={{
+                                clipPath: "ellipse(80% 100% at 100% 50%)",
+                            }}
+                            className="handicap-image object-cover"
+                        />
+                    </div>
                 </div>
             </div>
+
         </section>
     );
 }

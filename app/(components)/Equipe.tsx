@@ -47,7 +47,7 @@ export default function Equipe() {
             }, "<0.2");
 
             tl.from(".equipe-button", {
-                x: 120,
+                y: 80,
                 opacity: 0,
             }, "<0.1");
         }, equipeRef);
