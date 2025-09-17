@@ -17,102 +17,112 @@ export default function Formation() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Hero
+            // Hero Section: Animation plus percutante
             gsap.from(".hero-text", {
                 opacity: 0,
-                y: 100,
+                y: 50, // Moins de déplacement pour un effet plus subtil
+                duration: 0.8,
+                ease: "power2.out", // Utilisation d'un easing pour un mouvement plus fluide
                 stagger: 0.2,
                 scrollTrigger: {
                     trigger: heroRef.current,
-                    start: "top bottom",   // section entre dans l'écran
-                    end: "bottom top",     // section sort de l'écran
-                    scrub: 0.5,
+                    start: "top 80%", // Commence l'animation plus tôt dans le viewport
+                    toggleActions: "play none none none", // Joue l'animation une seule fois à l'entrée
                 },
             })
 
             gsap.from(".hero-img", {
                 opacity: 0,
-                x: 200,
+                scale: 0.8, // Apparaît en se "zoomant"
+                rotate: 2, // Légère rotation pour le dynamisme
+                duration: 1,
+                delay: 0.3, // Décalage après le texte
+                ease: "power2.out",
                 scrollTrigger: {
                     trigger: heroRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 0.5,
+                    start: "top 80%",
+                    toggleActions: "play none none none",
                 },
             })
 
-            // Formations
+            // Formations Section: Révélation des cartes
             gsap.from(".formation-card", {
                 opacity: 0,
-                y: 150,
-                stagger: 0.2,
+                y: 100,
+                duration: 0.6,
+                ease: "back.out(1.2)", // Effet de rebond pour plus de vivacité
+                stagger: 0.15, // Écart plus serré
                 scrollTrigger: {
                     trigger: formationsRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 0.5,
+                    start: "top 70%",
+                    toggleActions: "play none none none",
                 },
             })
 
-            // Témoignages
+            // Témoignages Section: Animation des cartes et des icônes de citation
             gsap.from(".testimonial-card", {
                 opacity: 0,
-                y: 120,
+                y: 80,
+                duration: 0.6,
+                ease: "power3.out",
                 stagger: 0.2,
                 scrollTrigger: {
                     trigger: temoignagesRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 0.5,
+                    start: "top 70%",
+                    toggleActions: "play none none none",
                 },
             })
 
             gsap.from(".quote-icon", {
                 opacity: 0,
-                rotate: -45,
                 scale: 0.5,
-                stagger: 0.2,
+                rotate: -45,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.5)", // Effet élastique sur les icônes
+                stagger: 0.3,
                 scrollTrigger: {
                     trigger: temoignagesRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 0.5,
+                    start: "top 70%",
+                    toggleActions: "play none none none",
                 },
             })
 
-            // Stats
+            // Stats Section: Animations des éléments
             gsap.from(".circle", {
                 opacity: 0,
-                scale: 0.3,
+                scale: 0.5,
+                duration: 1,
+                ease: "elastic.out(1, 0.3)",
                 scrollTrigger: {
                     trigger: statsRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 0.5,
+                    start: "top 75%",
+                    toggleActions: "play none none none",
                 },
             })
 
             gsap.from(".keyword", {
                 opacity: 0,
-                y: 50,
+                y: 30,
+                duration: 0.5,
                 stagger: 0.15,
+                ease: "power2.out",
                 scrollTrigger: {
                     trigger: statsRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: .5,
+                    start: "top 75%",
+                    toggleActions: "play none none none",
                 },
             })
 
             gsap.from(".stat-card", {
                 opacity: 0,
-                x: -100,
+                x: -100, // Déplace de la gauche
+                duration: 0.7,
                 stagger: 0.2,
+                ease: "power3.out",
                 scrollTrigger: {
                     trigger: statsRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: .5,
+                    start: "top 75%",
+                    toggleActions: "play none none none",
                 },
             })
         })

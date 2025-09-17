@@ -118,16 +118,17 @@ export default function Handicap() {
                     </button>
                 </div>
                 {/* Image en arc */}
-                <div className="absolute w-full h-full top-0 left-0 flex justify-end items-end pointer-events-none">
+                <div className="absolute w-full h-full top-0 left-0 flex justify-end items-end pointer-events-none -z-10 md:z-10">
                     <div className="handicap-image-container w-full md:w-1/2 h-[40vh] md:h-full relative overflow-hidden order-1 md:order-2">
                         <Image
                             src="/Alt_handicap.jpg"
                             alt="Une personne en situation de handicap dans un fauteuil roulant participe à une formation."
                             fill
-                            style={{
-                                clipPath: "ellipse(80% 100% at 100% 50%)",
-                            }}
-                            className="handicap-image object-cover"
+                            className="
+        handicap-image object-cover
+        [clip-path:ellipse(100%_80%_at_60%_100%)] 
+        md:[clip-path:ellipse(80%_100%_at_100%_50%)]
+      "
                         />
                     </div>
                 </div>
