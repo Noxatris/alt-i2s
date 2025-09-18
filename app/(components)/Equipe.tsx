@@ -120,7 +120,7 @@ export default function Equipe() {
                 </div>
             </div>
 
-            <button className="equipe-button w-full sm:w-1/2 md:w-1/4 button-29 md:text-[18px]" role="button">
+            <button className="equipe-button w-full sm:w-1/2 md:w-1/4 button-29 md:text-[18px] mb-16" role="button">
                 <span>Organigramme</span> <CircleChevronRight />
             </button>
         </section>
