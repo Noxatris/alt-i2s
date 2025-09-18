@@ -1,12 +1,73 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { GraduationCap, BookOpen, Clock, MapPin, DollarSign, ChevronRight } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Tatoueurs() {
+    const heroRef = useRef(null);
+    const cardsRef = useRef([]);
+
+    useEffect(() => {
+        const heroElements = heroRef.current.querySelectorAll("h1, p, .button-29, .image-animation-hero");
+
+        gsap.fromTo(
+            heroElements,
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                stagger: 0.2,
+            }
+        );
+
+        // Animation de l'image de fond dans la section 'Infos pratiques'
+        gsap.fromTo(
+            ".tatouage-bg-image",
+            { scale: 1.2, rotation: 10 },
+            {
+                scale: 1,
+                rotation: 0,
+                duration: 2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".infos-pratiques-section",
+                    start: "top 80%",
+                },
+            }
+        );
+
+        // Animation des cartes dans la section 'Infos pratiques'
+        cardsRef.current.forEach((card, index) => {
+            gsap.fromTo(
+                card,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 90%",
+                    },
+                    delay: index * 0.2, // Délai pour un effet de stagger
+                }
+            );
+        });
+    }, []);
+
     return (
         <div className="bg-white text-gray-900">
             {/* Hero Section - Elevated to match home page style */}
-            <section className="relative overflow-hidden py-24 px-6 md:px-12">
+            <section ref={heroRef} className="relative overflow-hidden py-24 px-6 md:px-12">
                 <div className="absolute inset-0 w-full h-full opacity-10 text-gray-400 -z-50">
                     <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                         <defs>
@@ -42,7 +103,7 @@ export default function Tatoueurs() {
                             <ChevronRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                         </Link>
                     </div>
-                    <div className="relative w-full h-56 md:h-72 lg:h-80 flex items-center justify-center">
+                    <div className="relative w-full h-56 md:h-72 lg:h-80 flex items-center justify-center image-animation-hero">
                         <Image src="/ARS_Logo.avif" fill alt="Logo ARS" className="object-contain" />
                     </div>
                 </div>
@@ -68,16 +129,16 @@ export default function Tatoueurs() {
             </section>
 
             {/* Infos pratiques Section - Refined with card design */}
-            <section className="bg-gray-50 relative">
+            <section className="bg-gray-50 relative infos-pratiques-section">
                 <div className="absolute h-full aspect-square top-0 left-0 rounded-br-full rounded-tr-full overflow-hidden">
-                    <div className="relative w-full h-full ">
+                    <div className="relative w-full h-full tatouage-bg-image">
                         <Image src="/tatouage.avif" fill alt="Illustration tatouage" className="object-cover" />
                     </div>
                 </div>
                 <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-20">
 
                     {/* Documents Card */}
-                    <div className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl z-10">
+                    <div ref={(el) => (cardsRef.current[0] = el)} className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl z-10">
                         <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-4">
                             <BookOpen size={24} className="text-blue-600" />
                         </div>
@@ -93,7 +154,7 @@ export default function Tatoueurs() {
                     </div>
 
                     {/* Next Session Card */}
-                    <div className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl">
+                    <div ref={(el) => (cardsRef.current[1] = el)} className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl">
                         <div className="w-12 h-12 flex items-center justify-center bg-cyan-100 rounded-full mb-4">
                             <Clock size={24} className="text-cyan-600" />
                         </div>

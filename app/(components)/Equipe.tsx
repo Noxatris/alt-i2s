@@ -19,7 +19,7 @@ export default function Equipe() {
                 scrollTrigger: {
                     trigger: equipeRef.current,
                     start: "top center",
-                    end: "top 15%",
+                    end: "top 20%",
                     scrub: 1.5,
                 },
             });
@@ -47,7 +47,7 @@ export default function Equipe() {
             }, "<0.2");
 
             tl.from(".equipe-button", {
-                y: 80,
+                y: 20,
                 opacity: 0,
             }, "<0.1");
         }, equipeRef);

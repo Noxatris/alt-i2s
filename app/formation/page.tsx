@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useLayoutEffect } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Users, Timer, CheckCircle, Smile, Quote, CircleChevronRight, ArrowUpRight } from "lucide-react"
@@ -15,21 +15,16 @@ export default function Formation() {
     const temoignagesRef = useRef<HTMLDivElement>(null)
     const statsRef = useRef<HTMLDivElement>(null)
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const ctx = gsap.context(() => {
 
-            // Les animations du "Hero" se lancent dès le chargement de la page
+            // Animations du "Hero"
             gsap.from(".hero-text", {
                 opacity: 0,
                 y: 50,
                 duration: 0.8,
                 ease: "power2.out",
                 stagger: 0.2,
-                scrollTrigger: {
-                    trigger: heroRef.current,
-                    start: "top 80%",
-                    toggleActions: "play none none none",
-                },
             })
 
             gsap.from(".hero-img", {
@@ -39,26 +34,19 @@ export default function Formation() {
                 duration: 1,
                 delay: 0.3,
                 ease: "power2.out",
-                scrollTrigger: {
-                    trigger: heroRef.current,
-                    start: "top 80%",
-                    toggleActions: "play none none none",
-                },
             })
 
-            // On s'assure que la référence de la section formations est bien là
+            // Animations des autres sections
             if (formationsRef.current) {
                 gsap.from(formationsRef.current.querySelectorAll(".formation-card"), {
                     opacity: 0,
                     y: 50,
                     duration: 0.6,
                     ease: "power3.out",
-                    stagger: 0.15,
                     scrollTrigger: {
                         trigger: formationsRef.current,
-                        start: "top 90%",
-                        end: "+=200",
-                        scrub: 1.5,
+                        start: "top 70%",
+                        toggleActions: "play none none none",
                     },
                 })
             }
@@ -138,6 +126,8 @@ export default function Formation() {
         return () => ctx.revert()
     }, [])
 
+    // Le reste du code est inchangé
+    // ...
     // ----- DATA -----
     const formationsData = [
         { nom: "Utilisation du défibrillateur semi-automatique", description: "Animée par des formateurs expérimentés, infirmiers anesthésistes.", ficheTechnique: "/", dossierPresentation: "/", icon: "⚡" },
@@ -156,7 +146,7 @@ export default function Formation() {
     return (
         <div className="min-h-[80vh] text-gray-900">
             {/* Hero */}
-            <section ref={heroRef} className="relative">
+            <section ref={heroRef} className="relative mb-64">
                 <div className="pt-[15vh] w-full flex flex-col md:flex-row justify-around items-center gap-10 mb-20">
                     <div className="flex flex-col items-center gap-4">
                         <h1 className="hero-text text-[2.8em] md:text-[3.5em] text-black font-montserrat font-bold leading-tight">
@@ -175,7 +165,13 @@ export default function Formation() {
 
             {/* Formations */}
             <section ref={formationsRef} className="max-w-7xl mx-auto px-6 py-20 min-h-[80vh]">
-                <h2 className="font-bold text-[3em] text-center mb-16 text-cyan-600">Nos formations</h2>
+                <h1 className="text-center relative bg-gradient-to-r from-cyan-500 to-blue-700
+      bg-[length:200%_200%] bg-clip-text text-transparent 
+      animate-gradient font-bold 
+      text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+      [text-shadow:_2px_2px_4px_rgba(0,0,0,0.25)] uppercase mb-16">
+                    Nos formations
+                </h1>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {formationsData.map((data, i) => (
                         <div key={i} className="formation-card group relative flex flex-col justify-between overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
@@ -200,7 +196,13 @@ export default function Formation() {
             {/* Témoignages */}
             <section ref={temoignagesRef} className="bg-white py-20">
                 <div className="max-w-7xl mx-auto px-6">
-                    <h2 className="font-bold text-[3em] text-center mb-16 text-cyan-600">Témoignages</h2>
+                    <h1 className="text-center relative bg-gradient-to-r from-cyan-500 to-blue-700
+      bg-[length:200%_200%] bg-clip-text text-transparent 
+      animate-gradient font-bold 
+      text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+      [text-shadow:_2px_2px_4px_rgba(0,0,0,0.25)] uppercase mb-16">
+                        Témoignages
+                    </h1>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {testimonials.map((testimonial, i) => (
                             <div key={i} className="testimonial-card relative bg-gray-50 p-6 border rounded-3xl shadow-lg">
@@ -222,7 +224,13 @@ export default function Formation() {
 
             {/* Stats */}
             <section ref={statsRef} className="max-w-7xl mx-auto px-6 py-20 bg-gray-50">
-                <h2 className="font-bold text-[3em] text-center mb-16 text-cyan-600">Nos statistiques</h2>
+                <h1 className="text-center relative bg-gradient-to-r from-cyan-500 to-blue-700
+      bg-[length:200%_200%] bg-clip-text text-transparent 
+      animate-gradient font-bold 
+      text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+      [text-shadow:_2px_2px_4px_rgba(0,0,0,0.25)] uppercase mb-16">
+                    Nos statistiques
+                </h1>
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <div className="flex flex-col items-center space-y-8">
                         <div className="circle relative w-64 h-64 rounded-full bg-blue-500 flex items-center justify-center shadow-lg">
