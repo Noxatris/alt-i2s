@@ -2,6 +2,7 @@
 
 import useScrollPosition from '../hooks/useScrollPosition';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -19,9 +20,9 @@ export default function Header() {
   };
 
   return (
-    <header className={`fixed top-0 w-full h-[10%] flex justify-between px-16 items-center z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-100 text-gray-900 shadow-md' : 'bg-transparent text-white'}`}>
+    <header className={`fixed top-0 w-full h-[10%] flex justify-between px-4 xl:px-16 items-center z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-100 text-gray-900 shadow-md' : 'bg-transparent text-white'}`}>
       {/* Logo */}
-      <Link href="/" className={`relative w-[10%] h-[98%] ml-4 transition-all duration-600' ${isScrolled ? 'translate-y-0' : '-translate-y-50'}`}>
+      <Link href="/" className={`relative h-[98%] aspect-[2/1] ml-4 transition-all duration-600' ${isScrolled ? 'translate-y-0' : '-translate-y-50'}`}>
         <Image src="/logo/logo.png" fill alt="" />
       </Link>
 
