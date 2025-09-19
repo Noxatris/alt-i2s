@@ -10,11 +10,13 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Tatoueurs() {
-    const heroRef = useRef(null);
-    const cardsRef = useRef([]);
+    const heroRef = useRef<HTMLDivElement>(null);
+    const cardsRef = useRef<Array<HTMLDivElement | null>>([]);
 
     useEffect(() => {
-        const heroElements = heroRef.current.querySelectorAll("h1, p, .button-29, .image-animation-hero");
+        const heroElements = heroRef.current
+            ? heroRef.current.querySelectorAll("h1, p, .button-29, .image-animation-hero")
+            : [];
 
         gsap.fromTo(
             heroElements,
@@ -138,7 +140,7 @@ export default function Tatoueurs() {
                 <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-20">
 
                     {/* Documents Card */}
-                    <div ref={(el) => (cardsRef.current[0] = el)} className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl z-10">
+                    <div ref={(el) => { cardsRef.current[0] = el; }} className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl z-10">
                         <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-4">
                             <BookOpen size={24} className="text-blue-600" />
                         </div>
@@ -154,7 +156,7 @@ export default function Tatoueurs() {
                     </div>
 
                     {/* Next Session Card */}
-                    <div ref={(el) => (cardsRef.current[1] = el)} className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl">
+                    <div ref={(el) => { cardsRef.current[1] = el; }} className="flex flex-col justify-between border border-gray-200 rounded-3xl p-8 shadow-xl bg-white transition-shadow duration-300 hover:shadow-2xl">
                         <div className="w-12 h-12 flex items-center justify-center bg-cyan-100 rounded-full mb-4">
                             <Clock size={24} className="text-cyan-600" />
                         </div>
