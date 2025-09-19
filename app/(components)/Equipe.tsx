@@ -49,7 +49,7 @@ export default function Equipe() {
             tl.from(".equipe-button", {
                 y: 20,
                 opacity: 0,
-            }, "<0.1");
+            });
         }, equipeRef);
 
         return () => ctx.revert();

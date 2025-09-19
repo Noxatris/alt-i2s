@@ -36,7 +36,7 @@ export default function Header() {
       {/* Bouton Hamburger pour Mobile (visible uniquement sur mobile) */}
       <button onClick={toggleMenu} className="md:hidden text-2xl">
         {/* Vous pouvez utiliser une icône ou une simple balise SVG */}
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
       </button>
