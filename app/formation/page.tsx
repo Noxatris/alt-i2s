@@ -149,15 +149,15 @@ export default function Formation() {
             <section ref={heroRef} className="relative  ">
                 <div className="pt-[15vh] w-full flex flex-col md:flex-row justify-around items-center gap-10 mb-20">
                     <div className="flex flex-col items-center gap-4">
-                        <h1 className="hero-text text-[2.8em] md:text-[3.5em] text-black font-montserrat font-bold leading-tight">
+                        <h1 className="hero-text text-[2.8em] md:text-[3.5em] text-center text-black font-montserrat font-bold leading-tight">
                             Catalogue de <span className="text-cyan-500">formation</span> 2025
                         </h1>
-                        <p className="hero-text text-lg text-gray-600 mb-6">Découvrez nos formations professionnelles adaptées à vos besoins.</p>
-                        <Link href="/" className="hero-text button-29 w-[40%] flex justify-center items-center gap-2">
+                        <p className="hero-text text-lg text-gray-600 mb-6 w-[95%]">Découvrez nos formations professionnelles adaptées à vos besoins.</p>
+                        <Link href="/" className="hero-text button-29 w-[75%] xl:w-[40%] mb-16 xl:mb-0 flex justify-center items-center gap-2">
                             Nos formations <CircleChevronRight className="ml-2" />
                         </Link>
                     </div>
-                    <div className="hero-img relative w-[25%] h-160 rounded-xl overflow-hidden shadow-lg">
+                    <div className="hero-img relative w-[95%] md:w-[50%] xl:w-[25%] h-160 rounded-xl overflow-hidden shadow-lg">
                         <Image fill src="/catalogueFormation.avif" alt="Couverture du catalogue de formation" className="object-cover" />
                     </div>
                 </div>
@@ -182,10 +182,10 @@ export default function Formation() {
                             </div>
                             <div className="flex w-full text-white font-semibold text-lg">
                                 <a href={data.ficheTechnique} className="w-1/2 py-4 text-center bg-blue-600 hover:bg-blue-700 flex justify-center items-center gap-2">
-                                    Fiche technique <ArrowUpRight size={20} />
+                                    Fiche technique <ArrowUpRight size={20} className="hidden md:flex" />
                                 </a>
                                 <a href={data.dossierPresentation} className="w-1/2 py-4 text-center bg-cyan-500 hover:bg-cyan-600 flex justify-center items-center gap-2">
-                                    Présentation <ArrowUpRight size={20} />
+                                    Présentation <ArrowUpRight size={20} className="hidden md:flex" />
                                 </a>
                             </div>
                         </div>

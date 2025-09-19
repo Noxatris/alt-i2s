@@ -69,7 +69,7 @@ export default function Tatoueurs() {
     return (
         <div className="bg-white text-gray-900">
             {/* Hero Section - Elevated to match home page style */}
-            <section ref={heroRef} className="relative overflow-hidden py-24 px-6 md:px-12">
+            <section ref={heroRef} className="relative overflow-hidden py-12 md:py-24 px-6 md:px-12">
                 <div className="absolute inset-0 w-full h-full opacity-10 text-gray-400 -z-50">
                     <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                         <defs>
@@ -86,7 +86,7 @@ export default function Tatoueurs() {
                     <div>
                         <p className="uppercase text-sm font-semibold text-cyan-600 mb-2">Habilitation ARS</p>
                         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-                            Formation Hygiène et Salubrité
+                            Formation <span className="text-cyan-500">Hygiène</span> et <span className="text-cyan-500">Salubrité</span>
                         </h1>
                         <p className="text-lg text-gray-700 mb-6">
                             Obligatoire pour la pratique du tatouage, du piercing et de la dermopigmentation.
@@ -99,7 +99,7 @@ export default function Tatoueurs() {
                         </div>
                         <Link
                             href="/"
-                            className="group button-29 w-[50%]"
+                            className="group button-29 w-[90%] md:w-[60%] xl:w-[50%]"
                         >
                             Découvrir la formation
                             <ChevronRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
@@ -115,24 +115,24 @@ export default function Tatoueurs() {
             <section className="max-w-5xl mx-auto px-6 py-20">
                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                     <p>
-                        La formation <strong>Hygiène et Salubrité</strong> est composée de modules répartis sur <strong>3 jours</strong>,
+                        La formation <strong className="text-cyan-500">Hygiène et Salubrité</strong> est composée de modules répartis sur <strong className="text-cyan-500">3 jours</strong>,
                         alliant théorie et pratique. Elle a pour but de sensibiliser aux gestes et comportements à adopter
                         dans le respect de l’hygiène.
                     </p>
                     <p>
-                        Elle est animée par une <strong>Cadre Hygiéniste</strong> et répond aux exigences du décret du 19 février 2008
+                        Elle est animée par une <strong className="text-cyan-500">Cadre Hygiéniste</strong> et répond aux exigences du décret du 19 février 2008
                         et aux arrêtés les plus récents (05 mars 2024 et 11 octobre 2024).
                     </p>
                     <p>
-                        Cette formation s’adresse aux professionnels du <strong>tatouage</strong>, du <strong>perçage</strong> et de la
-                        <strong> dermopigmentation</strong>.
+                        Cette formation s’adresse aux professionnels du <strong className="text-cyan-500">tatouage</strong>, du <strong className="text-cyan-500">perçage</strong> et de la
+                        <strong className="text-cyan-500"> dermopigmentation</strong>.
                     </p>
                 </div>
             </section>
 
             {/* Infos pratiques Section - Refined with card design */}
-            <section className="bg-gray-50 relative infos-pratiques-section">
-                <div className="absolute h-full aspect-square top-0 left-0 rounded-br-full rounded-tr-full overflow-hidden">
+            <section className="bg-gray-50 relative infos-pratiques-section max-w-screen overflow-hidden">
+                <div className="absolute h-full aspect-square top-0 left-0 rounded-br-full rounded-tr-full ">
                     <div className="relative w-full h-full tatouage-bg-image">
                         <Image src="/tatouage.avif" fill alt="Illustration tatouage" className="object-cover" />
                     </div>
