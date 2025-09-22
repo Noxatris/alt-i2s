@@ -99,7 +99,7 @@ export default function Tatoueurs() {
                         </div>
                         <Link
                             href="/"
-                            className="group button-29 w-[90%] md:w-[60%] xl:w-[50%]"
+                            className="group button-29 w-[90%] md:w-[80%] xl:w-[50%]"
                         >
                             Découvrir la formation
                             <ChevronRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />

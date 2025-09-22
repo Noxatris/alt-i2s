@@ -68,7 +68,7 @@ export default function Handicap() {
         >
             {/* SVG des chevrons masqué sur les mobiles et affiché sur les résolutions moyennes et plus */}
             <svg
-                className="handicap-chevrons absolute inset-y-0 left-0 h-full w-20 md:w-32 lg:w-96 pointer-events-none opacity-50 hidden md:block"
+                className="handicap-chevrons absolute inset-y-0 left-0 h-full w-20 md:w-32 lg:w-96 pointer-events-none opacity-50 hidden xl:block"
                 viewBox="0 0 50 100"
                 preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,9 +94,9 @@ export default function Handicap() {
                 />
             </svg>
 
-            <div className="flex flex-col md:flex-row w-full justify-between items-center max-w-7xl">
+            <div className="flex flex-col xl:flex-row w-full justify-between items-center max-w-7xl">
                 {/* Contenu textuel */}
-                <div className="flex flex-col items-center text-center md:text-left md:w-2/3 p-4 md:p-0 order-2 md:order-1">
+                <div className="flex flex-col items-center text-center xl:text-left xl:w-2/3 p-4 xl:p-0 order-2 xl:order-1">
                     <h1
                         className="handicap-title text-center relative bg-gradient-to-r from-cyan-500 to-blue-700
             bg-[length:200%_200%] bg-clip-text text-transparent 
@@ -107,19 +107,19 @@ export default function Handicap() {
                         Situation de handicap
                     </h1>
 
-                    <span className="handicap-subtext font-montserrat text-lg md:text-[2em] my-4 md:my-8">
+                    <span className="handicap-subtext font-montserrat text-lg md:text-[2em] my-4 xl:my-8">
                         I2S Formation s&apos;engage à vous accueillir
                     </span>
-                    <span className="handicap-subtext font-montserrat text-lg md:text-[2em] my-4 md:my-8">
+                    <span className="handicap-subtext font-montserrat text-lg md:text-[2em] my-4 xl:my-8">
                         Une question ou un besoin ?
                     </span>
-                    <button className="handicap-button button-29 w-full sm:w-2/3 md:w-1/2 mt-4 md:mt-8" role="button">
+                    <button className="handicap-button button-29 w-full sm:w-2/3 xl:w-1/2 mt-4 xl:mt-8" role="button">
                         Contactez le référent handicap
                     </button>
                 </div>
                 {/* Image en arc */}
-                <div className="absolute w-full h-full top-0 left-0 flex justify-end items-end pointer-events-none -z-10 md:z-10">
-                    <div className="handicap-image-container w-full md:w-1/2 h-[40vh] md:h-full relative overflow-hidden order-1 md:order-2">
+                <div className="absolute w-full h-full top-0 left-0 flex justify-end items-end pointer-events-none -z-10 xl:z-10">
+                    <div className="handicap-image-container w-full xl:w-1/2 h-[40vh] xl:h-full relative overflow-hidden order-1 md:order-2">
                         <Image
                             src="/Alt_handicap.jpg"
                             alt="Une personne en situation de handicap dans un fauteuil roulant participe à une formation."
@@ -127,7 +127,7 @@ export default function Handicap() {
                             className="
         handicap-image object-cover
         [clip-path:ellipse(100%_80%_at_60%_100%)] 
-        md:[clip-path:ellipse(80%_100%_at_100%_50%)]
+        xl:[clip-path:ellipse(80%_100%_at_100%_50%)]
       "
                         />
                     </div>

@@ -147,7 +147,7 @@ export default function Formation() {
         <div className="min-h-[80vh] text-gray-900">
             {/* Hero */}
             <section ref={heroRef} className="relative  ">
-                <div className="pt-[15vh] w-full flex flex-col md:flex-row justify-around items-center gap-10 mb-20">
+                <div className="pt-[15vh] w-full flex flex-col lg:flex-row justify-around items-center gap-10 mb-20">
                     <div className="flex flex-col items-center gap-4">
                         <h1 className="hero-text text-[2.8em] md:text-[3.5em] text-center text-black font-montserrat font-bold leading-tight">
                             Catalogue de <span className="text-cyan-500">formation</span> 2025
