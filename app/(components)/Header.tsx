@@ -27,7 +27,7 @@ export default function Header() {
       </Link>
 
       {/* Menu pour Desktop (caché sur mobile) */}
-      <nav className={`text-2xl divide-x-2 divide-cyan-400 font-semibold transition-all duration-600 hidden md:flex ${isScrolled ? 'py-0' : 'bg-black/30 backdrop-blur-sm rounded-2xl py-3'}`}>
+      <nav className={`text-2xl divide-x-2 divide-cyan-400 font-semibold transition-all duration-600 hidden xl:flex ${isScrolled ? 'py-0' : 'bg-black/30 backdrop-blur-sm rounded-2xl py-3'}`}>
         <Link href="/" className="px-6">Accueil</Link>
         <Link href="/formation" className="px-6">Formation</Link>
         <Link href="/tatoueurs" className="px-6">Tatoueurs</Link>
@@ -35,7 +35,7 @@ export default function Header() {
       </nav>
 
       {/* Bouton Hamburger pour Mobile (visible uniquement sur mobile) */}
-      <button onClick={toggleMenu} className="md:hidden text-2xl">
+      <button onClick={toggleMenu} className="xl:hidden text-2xl">
         {/* Vous pouvez utiliser une icône ou une simple balise SVG */}
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
